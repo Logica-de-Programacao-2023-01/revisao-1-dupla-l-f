@@ -1,5 +1,10 @@
 package q2
 
+import (
+	"fmt"
+	"strings"
+)
+
 func AverageLettersPerWord(text string) (float64, error) {
 	var letras float64
 	var espaços float64
@@ -18,3 +23,4 @@ func AverageLettersPerWord(text string) (float64, error) {
 	media := letras / espaços
 	return media, nil
 }
+
