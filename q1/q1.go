@@ -17,10 +17,10 @@ func CalculateDiscount(currentPurchase float64, purchaseHistory []float64) (floa
 		discount = currentPurchase * 0.2
 	case somaHistory > float64(1000) || somaHistory == float64(0):
 		discount = currentPurchase * 0.1
-	case somaHistory <= float64(1000):
-		discount = currentPurchase * 0.05
 	case somaHistory <= float64(500):
 		discount = currentPurchase * 0.02
+	case somaHistory <= float64(1000):
+		discount = currentPurchase * 0.05
 	}
 	return discount, nil
 }
