@@ -3,27 +3,25 @@ package q1
 import "fmt"
 
 func CalculateDiscount(currentPurchase float64, purchaseHistory []float64) (float64, error) {
-	// Implemente sua solução aqui
-	var SomaHistory float64
-	var full float64
-	var expectedDiscount float64
-	for _, valor := range purchaseHistory {
-		SomaHistory += valor
+	var somaHistory float64
+	for i := 0; i < len(purchaseHistory); i++ {
+		somaHistory += purchaseHistory[i]
 	}
-	media := (SomaHistory) / float64(len(purchaseHistory))
+	somaFull := somaHistory + currentPurchase
+	discount := 0.0
 	switch {
 	case currentPurchase <= 0:
-		return 0, fmt.Errorf("Valor de compra inválido")
-	case full > 1000:
-		expectedDiscount = currentPurchase * 0.1
-	case full <= 1000:
-		expectedDiscount = currentPurchase * 0.05
-	case full <= 500:
-		expectedDiscount = currentPurchase * 0.02
-	case SomaHistory == 0:
-		expectedDiscount = currentPurchase * 0.1
-	case media > 1000:
-		expectedDiscount = currentPurchase * 0.2
+		return 0, fmt.Errorf("Valor inválido")
+	case somaFull == float64(0):
+		discount = currentPurchase * 0.1
+	case somaFull/float64(len(purchaseHistory)) > float64(1000):
+		discount = currentPurchase * 0.2
+	case somaFull > float64(1000) && somaHistory == float64(0):
+		discount = currentPurchase * 0.1
+	case somaFull <= float64(1000):
+		discount = currentPurchase * 0.05
+	case somaFull <= float64(500):
+		discount = currentPurchase * 0.02
 	}
-	return expectedDiscount, nil
+	return discount, nil
 }
