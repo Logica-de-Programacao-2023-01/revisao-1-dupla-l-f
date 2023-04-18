@@ -23,7 +23,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 		return 0, fmt.Errorf("Este não é um código de imposto válido ")
 	}
 	if state == "SP" {
-		stateValor = 0.1
+		stateValor = 0.10
 	}
 	if state == "RJ" {
 		stateValor = 0.15
