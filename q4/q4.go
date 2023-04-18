@@ -2,14 +2,14 @@ package q4
 
 import "fmt"
 
+import "fmt"
+
 func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64, error) {
 
 	var taxCodeValor float64
 	var stateValor float64
 	var expectedPrice float64
 
-	if basePrice == 0 {
-		return 0, fmt.Errorf("Inválido ")
 	if taxCode == 1 {
 		taxCodeValor = 0.05
 	}
@@ -23,7 +23,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 		return 0, fmt.Errorf("Este não é um código de imposto válido ")
 	}
 	if state == "SP" {
-		stateValor = 0.10
+		stateValor = 0.1
 	}
 	if state == "RJ" {
 		stateValor = 0.15
@@ -37,6 +37,8 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	if state != "SP" && state != "RJ" && state != "MG" && state != "ES" {
 		stateValor = 0.3
 	}
+	if basePrice == 0 {
+		return 0, fmt.Errorf("Inválido ")
 	}
 	expectedPrice = basePrice + (basePrice * float64(stateValor)) + (basePrice * float64(taxCodeValor))
 	if expectedPrice == 0 {
