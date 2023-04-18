@@ -1,5 +1,7 @@
 package q4
 
+import "fmt"
+
 func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64, error) {
 
 	var taxCodeValor float64
