@@ -14,7 +14,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 			taxCodeValor = 0.05
 		}
 		if taxCode == 2 {
-			taxCodeValor = 0.1
+			taxCodeValor = 0.10
 		}
 		if taxCode == 3 {
 			taxCodeValor = 0.15
