@@ -3,6 +3,7 @@ package q2
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 func AverageLettersPerWord(text string) (float64, error) {
