@@ -20,6 +20,6 @@ func FindMinMaxAverage(numbers []int) (int, int, float64, error) {
 			expectedMin = numbers[i]
 		}
 	}
-	expectedAverage = soma / embaixo
+	expectedAverage = (soma - float64(expectedMin) - float64(expectedMax)) / (embaixo - 2)
 	return expectedMax, expectedMin, expectedAverage, nil
 }
