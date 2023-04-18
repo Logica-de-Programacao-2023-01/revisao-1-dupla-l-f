@@ -4,7 +4,8 @@ import "fmt"
 
 func FindMinMaxAverage(numbers []int) (int, int, float64, error) {
 	// Implemente sua solução aqui
-	var Max, Min int
+	Max:= -9999999999999
+	Min:= 99999999999999
 	var soma, embaixo, media float64
 	if len(numbers) == 0 {
 		return 0, 0, 0, fmt.Errorf("Lista vazia")
