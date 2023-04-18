@@ -17,7 +17,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	if taxCode == 3 {
 		taxCodeValor = 0.15
 	}
-	if taxCode != 1 || taxCode != 2 || taxCode != 3 {
+	if taxCode != 1 && taxCode != 2 && taxCode != 3 {
 		return 0, fmt.Errorf("Este não é um código de imposto válido ")
 	}
 	if state == "SP" {
@@ -32,7 +32,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	if state == "ES" {
 		stateValor = 0.25
 	}
-	if state != "SP" || state != "RJ" || state != "MG" || state != "ES" {
+	if state != "SP" && state != "RJ" && state != "MG" && state != "ES" {
 		stateValor = 0.3
 	}
 
