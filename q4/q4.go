@@ -35,8 +35,13 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	if state != "SP" && state != "RJ" && state != "MG" && state != "ES" {
 		stateValor = 0.3
 	}
-
+	if basePrice == 0 {
+		return 0, fmt.Errorf("Inválido ")
+	}
 	expectedPrice = basePrice + (basePrice * float64(stateValor)) + (basePrice * float64(taxCodeValor))
+	if expectedPrice == 0 {
+		return 0, fmt.Errorf("Inválido ")
+	}
 
 	return expectedPrice, nil
 }
