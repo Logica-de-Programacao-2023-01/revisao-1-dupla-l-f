@@ -4,7 +4,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 
 	var taxCodeValor float64
 	var stateValor float64
-	var finalPrice float64
+	var expectedPrice float64
 
 	if taxCode == 1 {
 		taxCodeValor = 0.05
@@ -23,7 +23,7 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	}
 	if state == "RJ" {
 		stateValor = 0.15
-}
+	}
 	if state == "MG" {
 		stateValor = 0.2
 	}
@@ -33,11 +33,8 @@ func CalculateFinalPrice(basePrice float64, state string, taxCode int) (float64,
 	if state != "SP" || state != "RJ" || state != "MG" || state != "ES" {
 		stateValor = 0.3
 	}
-	
 
+	expectedPrice = basePrice + (basePrice * float64(stateValor)) + (basePrice * float64(taxCodeValor))
 
-
-	finalPrice = basePrice + (basePrice * float64(stateValor)) + (basePrice * float64(taxCodeValor))
-
-	return finalPrice, nil
+	return expectedPrice, nil
 }
