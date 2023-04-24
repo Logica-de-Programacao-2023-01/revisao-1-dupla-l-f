@@ -4,7 +4,7 @@ import "fmt"
 
 func CalculateDamage(characterLevel, enemyLevel int) (int, error) {
 	var damage int
-	if characterLevel <=0 && enemyLevel <=0 {
+	if characterLevel <= 0 || enemyLevel <= 0 {
 		fmt.Errorf("Nível inválido.")
 	} else {
 		switch {
