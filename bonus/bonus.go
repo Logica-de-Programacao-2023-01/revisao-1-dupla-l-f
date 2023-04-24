@@ -9,11 +9,8 @@ func CalculateDamage(characterLevel, enemyLevel int) (int, error) {
 	}
 	if characterLevel > enemyLevel {
 		damage = characterLevel * 10
-		if characterLevel > 100 {
-			damage = characterLevel * 20
-			if (characterLevel - enemyLevel) > 20 {
-				damage = characterLevel * 5
-			}
+		if characterLevel > 100 && (characterLevel-enemyLevel) > 20 {
+			damage *= 20 * 5
 		}
 	} else {
 		switch {
